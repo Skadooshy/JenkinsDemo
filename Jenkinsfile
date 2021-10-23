@@ -16,7 +16,7 @@ pipeline {
         //define when this stage should execute (this steps underneath)
         //expression{
           BRANCH_NAME == 'master' || BRANCH_NAME == 'dev' //(do only on master and dev)
-          echo 'my branch is master or dev'
+       //   echo 'my branch is master or dev'
       //  }
       }
       steps { 
