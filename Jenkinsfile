@@ -30,10 +30,7 @@ pipeline {
   post{
     //after all the stages are done
     always{
-      steps { 
         echo 'it will execute always even if the build fails (send email to the team about the build condition'
-      }
-    
     }
     success{
       steps { 
