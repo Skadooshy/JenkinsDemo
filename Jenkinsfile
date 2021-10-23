@@ -3,9 +3,16 @@ pipeline {
   agent any
   
   stages {
+    
+    stage("environment"){
+      steps{
+        echo "Change author is: ${CHANGE_AUTHOR}"
+        echo "Job url: ${JOB_URL}"
+        echo "Commit github: ${GIT_COMMIT}" 
+      }
+    }
 
     stage("build") {    
-      echo "Change author is: ${CHANGE_AUTHOR}"
       steps {
         echo "This build name is: ${BUILD_NAME}"
       	echo 'building the application....'
