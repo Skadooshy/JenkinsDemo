@@ -3,9 +3,11 @@ pipeline {
   agent any
   
   stages {
-    echo "This build name is: ${BUILD_NAME}"
+
     stage("build") {    
+      
       steps {
+        echo "This build name is: ${BUILD_NAME}"
       	echo 'building the application....'
         echo "Change author is: ${CHANGE_AUTHOR}
       }
