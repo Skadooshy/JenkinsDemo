@@ -12,6 +12,12 @@ pipeline {
     } 
     
     stage("test") {
+      when{
+        //define when this stage should execute (this steps underneath)
+        expression{
+          BRANCH_NAME == 'master' || BRANCH_NAME == 'dev' //(do only on master and dev)
+        }
+      }
       steps { 
         echo 'testing the application....'
       }
@@ -19,7 +25,7 @@ pipeline {
     }
     
     stage("deploy") {
-      steps { 
+      steps {
         echo 'deploying the application....'
       }
       
