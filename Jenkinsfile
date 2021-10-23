@@ -21,7 +21,7 @@ pipeline {
       } */
       steps { 
         echo 'testing the application....'
-        echo "Current branch name is ${BRANCH_NAME}"
+        echo "Current branch name is ${BRANCH_NAME}" //(localhost:8080/env-vars.html/ for all ENV variables)
       }
       
     }
