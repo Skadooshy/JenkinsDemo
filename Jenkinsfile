@@ -8,7 +8,7 @@ pipeline {
       steps{
         echo "Job url: ${JOB_URL}"
         echo "Commit github: ${GIT_COMMIT}" 
-        echo "This build name is: ${BUILD_NAME}"
+        echo "This job name is: ${BUILD_DISPLAY_NAME}"
       }
     }
 
