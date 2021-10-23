@@ -6,7 +6,7 @@ pipeline {
     
     stage("environment"){
       steps{
-        echo "Change author is: ${CHANGE_AUTHOR}"
+        echo "Change author is: ${CHANGE_AUTHOR_DISPLAY_NAME}"
         echo "Job url: ${JOB_URL}"
         echo "Commit github: ${GIT_COMMIT}" 
       }
