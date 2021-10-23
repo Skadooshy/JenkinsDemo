@@ -26,6 +26,7 @@ pipeline {
     }
     
   }
+  
   post{
     //after all the stages are done
     always{
@@ -40,7 +41,11 @@ pipeline {
       }
     }
     failure{
-        echo 'if failed'
-    }
+        steps { 
+          echo 'if successful'
+       }    
+     }
+  
   }
+  
 }
