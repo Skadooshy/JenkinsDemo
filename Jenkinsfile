@@ -8,14 +8,13 @@ pipeline {
       steps{
         echo "Job url: ${JOB_URL}"
         echo "Commit github: ${GIT_COMMIT}" 
+        echo "This build name is: ${BUILD_NAME}"
       }
     }
 
     stage("build") {    
       steps {
-        echo "This build name is: ${BUILD_NAME}"
       	echo 'building the application....'
-
       }
       
     } 
