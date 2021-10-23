@@ -14,10 +14,10 @@ pipeline {
     stage("test") {
       when{
         //define when this stage should execute (this steps underneath)
-        expression{
+        //expression{
           BRANCH_NAME == 'master' || BRANCH_NAME == 'dev' //(do only on master and dev)
           echo 'my branch is master or dev'
-        }
+      //  }
       }
       steps { 
         echo 'testing the application....'
