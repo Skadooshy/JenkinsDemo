@@ -6,6 +6,7 @@ pipeline {
   
   parameters{
     choice(name: 'VERSION', choices: ['1.1.0', '1.1.1', '1.1.2'], description: 'choice of versions')
+    booleanParam(name: 'executeTests', defaultValue: true, description: 'boolean for turning off tests')
   }
   
   environment { //environmental variables accessible throughout the whole jenkinsfile
