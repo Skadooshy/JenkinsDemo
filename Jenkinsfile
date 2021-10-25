@@ -4,7 +4,7 @@ pipeline {
   
   agent any
   
-  parameters{
+  parameters {
     choice(name: 'VERSION', choices: ['1.1.0', '1.1.1', '1.1.2'], description: 'choice of versions')
     booleanParam(name: 'executeTests', defaultValue: true, description: 'boolean for turning off tests')
   }
@@ -15,17 +15,17 @@ pipeline {
   } 
  
   stages {
-   stage("init"){
-      steps{
-        script{
+   stage("init") {
+      steps {
+        script {
           gscript = load "script.groovy"
         }
       }
     }
     
     stage("environment"){
-      steps{
-        script{
+      steps {
+        script {
           gscript.useEnviromentalVariables()
         }
       }
@@ -33,15 +33,20 @@ pipeline {
     
     stage("build") {    
       steps {
-        script{
+        script {
           gscript.buildApp()
         }
       }  
     } 
     
     stage("test") {
-      steps { 
-          script{
+      steps {
+        when {
+          expression {
+            params.executeTests
+          }
+        }
+          script {
           gscript.testApp()
         }
       }
@@ -49,7 +54,7 @@ pipeline {
     
     stage("deploy") {
       steps {
-         script{
+         script {
           gscript.deployApp()
         }
       }     
@@ -57,17 +62,17 @@ pipeline {
     
   }
   
-  post{
+  post {
     //after all the stages are done
     always{
         echo 'it will execute always even if the build fails, send email to the team about the build condition'
     }
     
-    success{
+    success {
         echo 'if successful'
     }
     
-    failure{
+    failure {
          echo 'if successful' 
      }
     
