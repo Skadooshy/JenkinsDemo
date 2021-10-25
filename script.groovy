@@ -1,3 +1,9 @@
+def setEnviromentalVariables(){
+  echo "Job url: ${JOB_URL}"
+  echo "Commit github: ${GIT_COMMIT}" 
+  echo "This job name is: ${BUILD_DISPLAY_NAME}"
+}
+
 def buildApp(){
   echo 'building application'
   echo "building version ${NEW_VERSION}"
