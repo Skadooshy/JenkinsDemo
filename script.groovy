@@ -6,7 +6,7 @@ def useEnviromentalVariables(){
 
 def buildApp(){
   echo 'building application'
-  echo "building version ${NEW_VERSION}"
+  echo "building version ${params.VERSION}"
 }
 
 def testApp(){
