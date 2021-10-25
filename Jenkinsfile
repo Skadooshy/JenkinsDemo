@@ -26,11 +26,7 @@ pipeline {
     } 
     
     stage("test") {
-      when {
-        expression {
-          parameters.executeTests //if param executeTests = true, it will execute stage test
-        }
-      }
+      
       steps { 
         echo 'testing the application....'
         echo "Current branch name is ${BRANCH_NAME}" //(localhost:8080/env-vars.html/ for all ENV variables)
