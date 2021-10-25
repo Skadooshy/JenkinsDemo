@@ -21,7 +21,7 @@ pipeline {
     stage("environment"){
       steps{
         script{
-          gscript.setEnviromentalVariables()
+          gscript.useEnviromentalVariables()
         }
       }
     }
