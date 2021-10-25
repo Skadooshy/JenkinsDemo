@@ -47,8 +47,6 @@ pipeline {
     
     stage("deploy") {
       steps {
-        echo 'deploying the application....'
-        echo "deploying with ${SERVER_CREDENTIALS}"
          script{
           gscript.deployApp()
         }
