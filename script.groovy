@@ -9,3 +9,5 @@ def function_test(){
 def function_deploy(){
   echo 'deploy application'
 }
+
+return this
