@@ -8,6 +8,8 @@ def testApp(){
 
 def deployApp(){
   echo 'deploy application'
+  echo 'deploying the application....'
+  echo "deploying with ${SERVER_CREDENTIALS}"
 }
 
 return this
