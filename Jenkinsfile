@@ -41,13 +41,13 @@ pipeline {
     
     stage("test") {
       steps {
-        when {
-          expression {
-            params.executeTests
+          when {
+            expression {
+              params.executeTests
           }
         }
           script {
-          gscript.testApp()
+            gscript.testApp()
         }
       }
     }
