@@ -2,7 +2,12 @@ pipeline {
   
   agent any
   
-  environment{
+  parameters{
+    choice(name: 'VERSION', choices: ['1.1.0', '1.1.1', '1.1.2'])
+    booleanParam(name: 'executeTests', defaultValue: true, description: '')
+  }
+  
+  environment{ //environmental variables accessible throughout the whole jenkinsfile
     NEW_VERSION = '1.3.0'
     SERVER_CREDENTIALS = credentials('test-server-credentials')
   } 
@@ -26,13 +31,11 @@ pipeline {
     } 
     
     stage("test") {
-     /* when{
-        //define when this stage should execute (this steps underneath)
-        expression{
-          BRANCH_NAME != 'master' || BRANCH_NAME != 'dev' //(do only on master and dev)
-         echo 'my branch is master or dev'
+      when {
+        expression {
+          parameters.executeTests //if param executeTests = true, it will execute stage test
         }
-      } */
+      }
       steps { 
         echo 'testing the application....'
         echo "Current branch name is ${BRANCH_NAME}" //(localhost:8080/env-vars.html/ for all ENV variables)
@@ -44,6 +47,7 @@ pipeline {
       steps {
         echo 'deploying the application....'
         echo "deploying with ${SERVER_CREDENTIALS}"
+        echo "deploying ${params.VERSION}"
       }
       
     }
