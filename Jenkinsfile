@@ -42,9 +42,7 @@ pipeline {
     stage("test") {
       steps {
           when {
-            expression {
               params.executeTests
-          }
         }
           script {
             gscript.testApp()
