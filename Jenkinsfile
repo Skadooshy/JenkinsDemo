@@ -40,10 +40,13 @@ pipeline {
     } 
     
     stage("test") {
-      steps {
-          when {
-              params.executeTests
+         when {
+            expression {
+               params.executeTests
+            }
         }
+      
+      steps {
           script {
             gscript.testApp()
         }
