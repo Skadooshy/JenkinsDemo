@@ -10,25 +10,24 @@ pipeline {
   } 
  
   stages {
-    stage("environment"){
-      steps{
-        echo "Job url: ${JOB_URL}"
-        echo "Commit github: ${GIT_COMMIT}" 
-        echo "This job name is: ${BUILD_DISPLAY_NAME}"
-      }
-    }
-    
-    stage("init"){
+   stage("init"){
       steps{
         script{
           gscript = load "script.groovy"
         }
       }
     }
-
+    
+    stage("environment"){
+      steps{
+        script{
+          gv.envVariables()
+        }
+      }
+    }
+    
     stage("build") {    
       steps {
-        echo "building version ${NEW_VERSION}"
         script{
           gscript.buildApp()
         }
@@ -37,8 +36,6 @@ pipeline {
     
     stage("test") {
       steps { 
-        echo 'testing the application....'
-        echo "Current branch name is ${BRANCH_NAME}" //(localhost:8080/env-vars.html/ for all ENV variables)
           script{
           gscript.testApp()
         }
