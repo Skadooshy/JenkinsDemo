@@ -1,4 +1,4 @@
-def setEnviromentalVariables(){
+def useEnviromentalVariables(){
   echo "Job url: ${JOB_URL}"
   echo "Commit github: ${GIT_COMMIT}" 
   echo "This job name is: ${BUILD_DISPLAY_NAME}"
