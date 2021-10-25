@@ -1,12 +1,12 @@
-def function_build(){
+def buildApp(){
   echo 'building application'
 }
 
-def function_test(){
+def testApp(){
   echo 'testing application'
 }
 
-def function_deploy(){
+def deployApp(){
   echo 'deploy application'
 }
 
